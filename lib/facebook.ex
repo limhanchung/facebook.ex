@@ -83,6 +83,17 @@ defmodule Facebook do
   end
 
   @doc """
+  Generate long-lived token
+
+  See: https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension#long-via-code
+  """
+  @spec long_lived_access_token(access_token, options) :: response
+  def long_lived_access_token(access_token, options) do
+
+    Facebook.Graph.get("/oauth/access_token", [ grant_type: "fb_exchange_token", client_id: Config.client_id, client_secret: Config.appsecret, appsecret_proof: encrypt(access_token), fb_exchange_token: access_token], options)
+  end
+
+  @doc """
   Likes of the currently logged in user (specified by the access_token)
 
   See: https://developers.facebook.com/docs/graph-api/reference/user/likes
