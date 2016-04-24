@@ -93,7 +93,7 @@ defmodule Facebook do
     Facebook.Graph.get("/oauth/access_token", [ grant_type: "fb_exchange_token", client_id: Config.client_id, client_secret: Config.appsecret, appsecret_proof: encrypt(access_token), fb_exchange_token: access_token], options)
   end
 
-  def long_lived_access_token(access_token, options) do
+  def long_lived_access_token(access_token) do
     long_lived_access_token(access_token, [])
   end
 
