@@ -8,6 +8,12 @@ defmodule Facebook.Config do
   defkey :graph_url
 
   @doc """
+    iex> Facebook.Config.client_id
+    "client_id"
+  """
+  defkey :client_id
+
+  @doc """
     iex> Facebook.Config.appsecret
     "appsecrettokenhere"
   """
